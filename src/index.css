@@ -1,0 +1,18 @@
+/* =============================================
+   React-specific overrides
+   The existing styles.css uses display:none/.active toggling.
+   React handles mounting/unmounting, so screens are always flex.
+   ============================================= */
+
+.screen {
+  display: flex !important;
+}
+
+.bottom-nav {
+  display: flex !important;
+}
+
+/* Fix: original CSS used invalid top: -var(...) */
+.nav-item.active::after {
+  top: calc(-1 * var(--space-md));
+}

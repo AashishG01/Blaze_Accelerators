@@ -1,0 +1,73 @@
+# Blaze Challenge — Competitor Research: First-Salary Banking Landscape
+## Research date: July 2026
+
+---
+
+## 1. Indian Banks — Salary Account Feature Comparison
+
+| Bank | Core Offer | Interest Rate | First-Job-Relevant Features | Explicitly Missing |
+|------|-----------|---------------|----------------------------|-------------------|
+| HDFC | Zero-balance salary account (multiple tiers) | 3–3.5% p.a. | Instant OD up to ₹1.25L, free Platinum debit card, InvestNow robo-advisory | No AI guidance; OD not calibrated to first-jobber cash-flow |
+| ICICI | Salary account (Silver/Gold/Titanium/M2O), 3-in-1 | 3–3.5% p.a. | 3-in-1 investment account, rewards, personal accident cover | Nothing beginner-oriented — assumes customer knows demat/trading |
+| Axis | Prime/Prestige/Liberty/Easy Access | 3–3.5% p.a. | EDGE reward points, lounge access, dining discounts | Zero financial education or budgeting tooling |
+| SBI | Zero-balance salary, largest branch network | Standard | Branch reach, OD facility | Weakest digital/app experience; no personalization |
+| Kotak (811) | App-first zero-balance, ActivMoney sweep | Competitive | Fully digital onboarding, auto-FD sweep | No guided investing or literacy layer |
+| IDFC FIRST | Positioned at "millennials," best savings rate | Up to 6.5% p.a. | ₹50L accident cover, lounge visits, zero fees on 28 services | Still a features list, not a journey — no "first salary" narrative |
+| AU Small Finance | Digital-first SFB | Higher than average | Fast digital onboarding | Thin brand trust vs. majors |
+
+**Pattern:** Every traditional bank presents a static bundle of perks identically to a 22-year-old first-jobber and a 45-year-old with a mortgage. None dynamically reacts to career stage. This is the exploitable gap.
+
+---
+
+## 2. Indian Fintechs / Neobanks
+
+| Player | Core Offer | Standout Feature | Gap / Weakness |
+|--------|-----------|-----------------|----------------|
+| Jupiter | Zero-balance, auto-categorized spend, "Pots" | Mini Loans up to ₹50K at 0% for salary holders | Overlaps with micro-credit wedge |
+| CRED | Credit-card bill payment + rewards | Best-in-class gamification | **Hard wall**: requires CIBIL ~750+ — first-jobbers excluded |
+| Niyo | Travel-forex neobank | Best 0% forex for international | Narrow use case, not primary banking |
+| Groww/Zerodha/INDmoney | Investment-first platforms | Best investment UX | Not banking — no salary account |
+
+### Critical Finding: Fi Money Shutdown
+
+Fi Money (ex-Google Pay India leads, backed by Peak XV/Temasek, 3.5M users) shut down consumer banking on March 11, 2026. Revenue: ₹38Cr vs ₹301Cr losses (8:1 ratio). Validates: "beautiful app wrapped around partner bank" has no durable unit economics in India.
+
+**Use in pitch:** "Why should the bank build this, not license from a fintech?" — Fi Money is the answer.
+
+---
+
+## 3. Feature Gap Matrix
+
+| Customer need | Who offers it | Verdict |
+|--------------|--------------|---------|
+| Budgeting / auto-categorized spend | Jupiter, Monzo, HDFC (weakly) | **Saturated** — do not build as centerpiece |
+| Rewards / cashback | Every bank + Jupiter + CRED | **Saturated and commoditized** |
+| Investment onboarding | Groww, Zerodha, INDmoney | **Saturated** |
+| Micro-credit against salary | Jupiter (0% mini-loans) | ⚠️ Not a clean gap — differentiate HOW |
+| **Credit-history building as visible, gamified product** | **Nobody** | ✅ **Genuine gap — strongest differentiator** |
+| **Dynamic life-stage-aware onboarding** | **Nobody** | ✅ **Genuine gap — cheap to prototype, hard to fake** |
+| **Transaction-grounded AI advice** | **Nobody in India** | ✅ **Genuine gap — strongest AI justification** |
+
+---
+
+## 4. Customer Journey Pain Points
+
+| Stage | Pain Point |
+|-------|-----------|
+| HR asks to open salary account | Zero choice — bank imposed, not chosen |
+| Receives first salary | No moment marks it as significant |
+| Spends freely | No friction, no framing — nothing says "this has to last 30 days" |
+| Feels confused | Confusion has no destination inside the bank app — loses user to fintechs/Instagram |
+| Needs guidance | Bank offers generic literacy content they won't read |
+| Starts investing | On Groww/Zerodha, not the bank |
+| Becomes loyal customer | To the fintech, not the bank |
+
+---
+
+## 5. Strategic Conclusions
+
+1. **Kill "AI budget coach" as centerpiece** — it's table stakes, not a gap
+2. **Credit-building as visible, gamified product** is the strongest differentiator — sell "the first entry in your credit history," not "a loan"
+3. **Fi Money collapse** = live business-impact argument
+4. **"Wedge, not menu"** is externally validated by every winning neobank (Chime, Wise, Nubank)
+5. Screenshot targets for gap slides: Jupiter, HDFC, IDFC FIRST, CRED
