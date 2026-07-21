@@ -62,6 +62,16 @@ export default function QuizScreen() {
     Object.entries(answers).forEach(([s, v]) => {
       dispatch({ type: 'SET_QUIZ_ANSWER', step: s, value: v });
     });
+
+    const living = answers[0] || 'hostel';
+    if (living === 'parents') {
+      dispatch({ type: 'SET_BUDGET_ALL', pcts: { essentials: 15, savings: 35, investments: 25, spending: 25 } });
+    } else if (living === 'independent') {
+      dispatch({ type: 'SET_BUDGET_ALL', pcts: { essentials: 45, savings: 15, investments: 15, spending: 25 } });
+    } else {
+      dispatch({ type: 'SET_BUDGET_ALL', pcts: { essentials: 30, savings: 25, investments: 20, spending: 25 } });
+    }
+
     addScore(10);
     navigate('dashboard');
   };

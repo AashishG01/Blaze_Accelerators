@@ -2,6 +2,7 @@ import { AppProvider, useApp } from './context/AppContext';
 import ScoreToast from './components/ScoreToast';
 import Confetti from './components/Confetti';
 import BottomNav from './components/BottomNav';
+import DemoSwitcher from './components/DemoSwitcher';
 
 import SplashScreen from './screens/SplashScreen';
 import OnboardingScreen from './screens/OnboardingScreen';
@@ -57,6 +58,7 @@ function AppContent() {
 
       <Confetti />
       <ScoreToast />
+      <DemoSwitcher />
 
       <div className="app-container">
         {Screen && <Screen key={currentScreen} />}

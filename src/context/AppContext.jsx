@@ -29,6 +29,8 @@ function reducer(state, action) {
     case 'SET_BUDGET_PCT': {
       return { ...state, budgetPcts: { ...state.budgetPcts, [action.category]: action.value } };
     }
+    case 'SET_BUDGET_ALL':
+      return { ...state, budgetPcts: action.pcts };
     case 'LOCK_BUDGET':
       return { ...state, budgetLocked: true };
     case 'SET_SIP_AMOUNT':
