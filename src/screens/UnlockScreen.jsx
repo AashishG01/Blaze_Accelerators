@@ -59,8 +59,12 @@ export default function UnlockScreen() {
         </p>
       </div>
 
-      <button className="btn btn-primary" onClick={() => navigate('dashboard-updated')}>
-        Explore Dashboard →
+      <button className="btn btn-accent" onClick={() => navigate('life-timeline')}>
+        See Your Life Roadmap 🗺️
+      </button>
+
+      <button className="btn btn-secondary" style={{ marginTop: 'var(--space-md)' }} onClick={() => navigate('dashboard-updated')}>
+        Back to Dashboard →
       </button>
     </section>
   );

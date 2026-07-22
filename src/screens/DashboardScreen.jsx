@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { useApp } from '../context/AppContext';
 import CreditGauge from '../components/CreditGauge';
 
 export default function DashboardScreen() {
-  const { navigate, creditScore, salary } = useApp();
+  const { navigate, creditScore, salary, budgetPcts } = useApp();
+  const [showInsight, setShowInsight] = useState(false);
 
   // Determine if this is the "updated" dashboard (after completing the flow)
   const isUpdated = creditScore >= 20;
@@ -10,6 +12,31 @@ export default function DashboardScreen() {
   const formattedBalance = isUpdated
     ? '₹' + salary.toLocaleString('en-IN')
     : '₹0.00';
+
+  // Determine spender type based on budget allocation
+  const spendingPct = budgetPcts.spending || 25;
+  const savingsPct = budgetPcts.savings || 25;
+  const investmentPct = budgetPcts.investments || 20;
+
+  let spenderType, spenderEmoji, spenderDesc;
+  if (savingsPct + investmentPct >= 45) {
+    spenderType = '🐢 Cautious Starter';
+    spenderEmoji = '🐢';
+    spenderDesc = 'You prioritize saving over spending — that\'s rare for a first salary. Your future self will thank you.';
+  } else if (spendingPct >= 35) {
+    spenderType = '⚡ Free Spender';
+    spenderEmoji = '⚡';
+    spenderDesc = 'You like to enjoy your earnings — nothing wrong with that, but balance is key to building your score.';
+  } else {
+    spenderType = '⚖️ Balanced Builder';
+    spenderEmoji = '⚖️';
+    spenderDesc = 'You\'re splitting wisely across needs and wants. A solid foundation for your credit journey.';
+  }
+
+  const handleCardClick = (e) => {
+    e.stopPropagation();
+    setShowInsight(!showInsight);
+  };
 
   return (
     <section className="screen">
@@ -24,9 +51,9 @@ export default function DashboardScreen() {
 
       {/* CREDIT STORY — THE TOP CARD */}
       <div
-        className="card card-credit-story cs-pulse"
-        style={{ marginBottom: 'var(--space-lg)', cursor: 'pointer' }}
-        onClick={() => navigate('credit-timeline')}
+        className={`card card-credit-story cs-pulse ${showInsight ? 'insight-active' : ''}`}
+        style={{ marginBottom: 'var(--space-lg)', cursor: 'pointer', position: 'relative' }}
+        onClick={handleCardClick}
       >
         <div className="credit-story-hero">
           <CreditGauge score={creditScore} size={80} />
@@ -44,7 +71,98 @@ export default function DashboardScreen() {
             </div>
           </div>
         </div>
+
+        {/* Tap hint — highlighted */}
+        <div className={`cs-tap-hint ${showInsight ? '' : 'cs-tap-glow'}`}>
+          <span className="cs-tap-pill">
+            {showInsight ? '▲ Tap to close' : '✨ Tap for insights'}
+          </span>
+        </div>
+
+        {/* Credit Insight Popup */}
+        <div className={`credit-insight-popup ${showInsight ? 'open' : ''}`}>
+          {/* Spender Type */}
+          <div className="ci-spender-section">
+            <div className="ci-spender-badge">{spenderEmoji}</div>
+            <div className="ci-spender-info">
+              <div className="ci-spender-label">YOUR SPENDER TYPE</div>
+              <div className="ci-spender-type">{spenderType}</div>
+            </div>
+          </div>
+          <p className="ci-spender-desc">{spenderDesc}</p>
+
+          <div className="ci-divider" />
+
+          {/* How to Improve */}
+          <div className="ci-section">
+            <div className="ci-section-header">
+              <span className="ci-section-icon">📈</span>
+              <span className="ci-section-title">Boost Your Score</span>
+            </div>
+            <div className="ci-tips">
+              <div className="ci-tip ci-tip-good">
+                <span className="ci-tip-icon">✅</span>
+                <span>Stick to your budget for 30 days straight</span>
+                <span className="ci-tip-points">+8</span>
+              </div>
+              <div className="ci-tip ci-tip-good">
+                <span className="ci-tip-icon">✅</span>
+                <span>Keep your SIP active — don&apos;t skip a month</span>
+                <span className="ci-tip-points">+12</span>
+              </div>
+              <div className="ci-tip ci-tip-good">
+                <span className="ci-tip-icon">✅</span>
+                <span>Hit your emergency fund goal of ₹10,000</span>
+                <span className="ci-tip-points">+8</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="ci-divider" />
+
+          {/* What to Avoid */}
+          <div className="ci-section">
+            <div className="ci-section-header">
+              <span className="ci-section-icon">🚫</span>
+              <span className="ci-section-title">Avoid These</span>
+            </div>
+            <div className="ci-tips">
+              <div className="ci-tip ci-tip-bad">
+                <span className="ci-tip-icon">❌</span>
+                <span>Overspending past your budget allocation</span>
+                <span className="ci-tip-penalty">−5</span>
+              </div>
+              <div className="ci-tip ci-tip-bad">
+                <span className="ci-tip-icon">❌</span>
+                <span>Skipping SIP payments or cancelling early</span>
+                <span className="ci-tip-penalty">−10</span>
+              </div>
+              <div className="ci-tip ci-tip-bad">
+                <span className="ci-tip-icon">❌</span>
+                <span>Dipping into savings for non-essentials</span>
+                <span className="ci-tip-penalty">−3</span>
+              </div>
+            </div>
+          </div>
+
+          {/* View full timeline link */}
+          <button
+            className="btn btn-primary btn-sm"
+            style={{ marginTop: 'var(--space-md)' }}
+            onClick={(e) => { e.stopPropagation(); navigate('credit-timeline'); }}
+          >
+            View Full Credit Timeline →
+          </button>
+        </div>
       </div>
+
+      {/* Popup overlay to close */}
+      {showInsight && (
+        <div
+          className="insight-overlay"
+          onClick={() => setShowInsight(false)}
+        />
+      )}
 
       {/* Balance Card */}
       <div className="card balance-card">
@@ -90,6 +208,17 @@ export default function DashboardScreen() {
             <div className="dsc-title">{isUpdated ? '₹2,000/month SIP' : 'Investments'}</div>
             <div className="dsc-detail">
               {isUpdated ? 'Nifty 50 Index Fund — Active' : 'Start your first SIP →'}
+            </div>
+          </div>
+          <div className="dsc-arrow">›</div>
+        </div>
+
+        <div className="card dash-small-card" onClick={() => navigate('life-timeline')} style={{ cursor: 'pointer' }}>
+          <div className="dsc-icon" style={{ background: 'rgba(255, 209, 102, 0.15)' }}>🗺️</div>
+          <div className="dsc-content">
+            <div className="dsc-title">Life Roadmap</div>
+            <div className="dsc-detail">
+              {isUpdated ? 'Age 22–40+ financial milestones' : 'Your future, mapped by age →'}
             </div>
           </div>
           <div className="dsc-arrow">›</div>

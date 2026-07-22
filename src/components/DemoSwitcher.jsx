@@ -17,6 +17,7 @@ const demoSteps = [
   { id: 'progress', label: '13. Financial Health' },
   { id: 'credit-timeline', label: '14. Credit Story Timeline' },
   { id: 'unlock', label: '15. Bank Unlocks Ladder' },
+  { id: 'life-timeline', label: '16. Life Roadmap 🗺️' },
 ];
 
 export default function DemoSwitcher() {

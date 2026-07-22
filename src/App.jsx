@@ -18,6 +18,7 @@ import GoalsScreen from './screens/GoalsScreen';
 import ProgressScreen from './screens/ProgressScreen';
 import CreditTimelineScreen from './screens/CreditTimelineScreen';
 import UnlockScreen from './screens/UnlockScreen';
+import LifeTimelineScreen from './screens/LifeTimelineScreen';
 
 const screens = {
   'splash': SplashScreen,
@@ -35,6 +36,7 @@ const screens = {
   'progress': ProgressScreen,
   'credit-timeline': CreditTimelineScreen,
   'unlock': UnlockScreen,
+  'life-timeline': LifeTimelineScreen,
 };
 
 const noNavScreens = ['splash', 'onboarding', 'account-type', 'verification', 'quiz', 'celebration'];

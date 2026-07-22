@@ -1922,6 +1922,520 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
+/* --- Credit Insight Popup --- */
+.cs-tap-hint {
+  text-align: center;
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-xs);
+}
+
+.cs-tap-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 5px 14px;
+  border-radius: 100px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  background: rgba(0, 214, 143, 0.1);
+  border: 1px solid rgba(0, 214, 143, 0.25);
+  transition: all var(--transition-base);
+}
+
+.cs-tap-glow .cs-tap-pill {
+  animation: tapPillPulse 2s ease-in-out infinite;
+  box-shadow: 0 0 12px rgba(0, 214, 143, 0.2), 0 0 24px rgba(0, 214, 143, 0.08);
+}
+
+@keyframes tapPillPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(0, 214, 143, 0.15), 0 0 20px rgba(0, 214, 143, 0.05);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(0, 214, 143, 0.35), 0 0 36px rgba(0, 214, 143, 0.12);
+    transform: scale(1.05);
+  }
+}
+
+.card-credit-story.insight-active {
+  border-color: rgba(0, 214, 143, 0.4);
+  box-shadow: 0 0 50px rgba(0, 214, 143, 0.25), 0 0 100px rgba(0, 214, 143, 0.08);
+}
+
+.credit-insight-popup {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease,
+              padding 0.4s ease;
+  padding: 0;
+}
+
+.credit-insight-popup.open {
+  max-height: 700px;
+  opacity: 1;
+  padding-top: var(--space-md);
+}
+
+.ci-spender-section {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-lg);
+  animation: scaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.ci-spender-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(0, 214, 143, 0.12), rgba(79, 124, 255, 0.12));
+  border: 1px solid rgba(0, 214, 143, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+
+.ci-spender-info {
+  flex: 1;
+}
+
+.ci-spender-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.ci-spender-type {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ci-spender-desc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: var(--space-sm);
+  padding: 0 var(--space-xs);
+}
+
+.ci-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  margin: var(--space-md) 0;
+}
+
+.ci-section {
+  padding: 0 var(--space-xs);
+}
+
+.ci-section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.ci-section-icon {
+  font-size: 1rem;
+}
+
+.ci-section-title {
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.ci-tips {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.ci-tip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 10px var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  transition: all var(--transition-fast);
+}
+
+.ci-tip-good {
+  background: rgba(0, 214, 143, 0.05);
+  border: 1px solid rgba(0, 214, 143, 0.1);
+}
+
+.ci-tip-good:hover {
+  background: rgba(0, 214, 143, 0.1);
+  border-color: rgba(0, 214, 143, 0.2);
+}
+
+.ci-tip-bad {
+  background: rgba(255, 107, 107, 0.05);
+  border: 1px solid rgba(255, 107, 107, 0.1);
+}
+
+.ci-tip-bad:hover {
+  background: rgba(255, 107, 107, 0.1);
+  border-color: rgba(255, 107, 107, 0.2);
+}
+
+.ci-tip-icon {
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.ci-tip span:nth-child(2) {
+  flex: 1;
+}
+
+.ci-tip-points {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  color: var(--color-accent);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.ci-tip-penalty {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  color: var(--color-danger);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.insight-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+/* =============================================
+   LIFE TIMELINE / AGE ROADMAP
+   ============================================= */
+.life-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding-left: 8px;
+  margin-top: var(--space-lg);
+}
+
+.life-timeline::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: linear-gradient(180deg,
+    var(--color-accent) 0%,
+    var(--color-primary) 25%,
+    var(--color-gold) 50%,
+    var(--color-purple) 75%,
+    var(--color-orange) 100%);
+  opacity: 0.3;
+}
+
+.lt-milestone {
+  position: relative;
+  padding-bottom: var(--space-lg);
+}
+
+.lt-milestone:last-child {
+  padding-bottom: 0;
+}
+
+/* Age marker row */
+.lt-age-marker {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+  position: relative;
+}
+
+.lt-age-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.lt-dot-accent {
+  background: rgba(0, 214, 143, 0.15);
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 0 16px rgba(0, 214, 143, 0.25);
+}
+
+.lt-dot-primary {
+  background: rgba(79, 124, 255, 0.15);
+  border: 2px solid var(--color-primary);
+}
+
+.lt-dot-gold {
+  background: rgba(255, 209, 102, 0.15);
+  border: 2px solid var(--color-gold);
+}
+
+.lt-dot-purple {
+  background: rgba(167, 139, 250, 0.15);
+  border: 2px solid var(--color-purple);
+}
+
+.lt-dot-orange {
+  background: rgba(245, 158, 11, 0.15);
+  border: 2px solid var(--color-orange);
+}
+
+.lt-dot-teal {
+  background: rgba(0, 214, 143, 0.1);
+  border: 2px solid rgba(0, 214, 143, 0.5);
+}
+
+.lt-age-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.lt-age-range {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.lt-phase-badge {
+  display: inline-flex;
+  padding: 2px 10px;
+  border-radius: 100px;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lt-badge-now {
+  background: rgba(0, 214, 143, 0.2);
+  color: var(--color-accent);
+  border: 1px solid rgba(0, 214, 143, 0.35);
+  animation: tapPillPulse 2s ease-in-out infinite;
+}
+
+.lt-badge-primary {
+  background: rgba(79, 124, 255, 0.12);
+  color: var(--color-primary);
+  border: 1px solid rgba(79, 124, 255, 0.2);
+}
+
+.lt-badge-gold {
+  background: rgba(255, 209, 102, 0.12);
+  color: var(--color-gold);
+  border: 1px solid rgba(255, 209, 102, 0.2);
+}
+
+.lt-badge-purple {
+  background: rgba(167, 139, 250, 0.12);
+  color: var(--color-purple);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+}
+
+.lt-badge-orange {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--color-orange);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.lt-badge-teal {
+  background: rgba(0, 214, 143, 0.08);
+  color: rgba(0, 214, 143, 0.7);
+  border: 1px solid rgba(0, 214, 143, 0.15);
+}
+
+/* Milestone card */
+.lt-card {
+  margin-left: 52px;
+  padding: var(--space-md) var(--space-lg);
+}
+
+.lt-card-accent {
+  border-left: 3px solid var(--color-accent);
+  background: linear-gradient(135deg, rgba(0, 214, 143, 0.06), transparent);
+}
+
+.lt-card-primary {
+  border-left: 3px solid var(--color-primary);
+  background: linear-gradient(135deg, rgba(79, 124, 255, 0.04), transparent);
+}
+
+.lt-card-gold {
+  border-left: 3px solid var(--color-gold);
+  background: linear-gradient(135deg, rgba(255, 209, 102, 0.04), transparent);
+}
+
+.lt-card-purple {
+  border-left: 3px solid var(--color-purple);
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.04), transparent);
+}
+
+.lt-card-orange {
+  border-left: 3px solid var(--color-orange);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.04), transparent);
+}
+
+.lt-card-teal {
+  border-left: 3px solid rgba(0, 214, 143, 0.5);
+  background: linear-gradient(135deg, rgba(0, 214, 143, 0.03), transparent);
+}
+
+.lt-current .lt-card {
+  box-shadow: 0 0 24px rgba(0, 214, 143, 0.12);
+}
+
+.lt-card-header {
+  margin-bottom: var(--space-md);
+}
+
+.lt-card-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.lt-card-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Items inside milestone cards */
+.lt-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.lt-item {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.lt-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.lt-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: 4px;
+}
+
+.lt-item-action {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.lt-item-target {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.lt-target-accent {
+  background: rgba(0, 214, 143, 0.12);
+  color: var(--color-accent);
+}
+
+.lt-target-primary {
+  background: rgba(79, 124, 255, 0.12);
+  color: var(--color-primary);
+}
+
+.lt-target-gold {
+  background: rgba(255, 209, 102, 0.12);
+  color: var(--color-gold);
+}
+
+.lt-target-purple {
+  background: rgba(167, 139, 250, 0.12);
+  color: var(--color-purple);
+}
+
+.lt-target-orange {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--color-orange);
+}
+
+.lt-target-teal {
+  background: rgba(0, 214, 143, 0.08);
+  color: rgba(0, 214, 143, 0.7);
+}
+
+.lt-item-tip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Motivational closer */
+.lt-closer {
+  text-align: center;
+  padding: var(--space-xl) var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+.lt-closer-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-md);
+}
+
+.lt-closer p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.lt-closer strong {
+  color: var(--color-accent);
+}
+
 /* --- Scrollbar --- */
 ::-webkit-scrollbar {
   width: 4px;
@@ -1941,3 +2455,4 @@ input[type="range"]::-moz-range-thumb {
   background: var(--color-primary);
   color: #fff;
 }
+
