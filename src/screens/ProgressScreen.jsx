@@ -182,9 +182,9 @@ export default function ProgressScreen() {
       <button
         className="btn btn-accent"
         style={{ marginTop: 'var(--space-xl)' }}
-        onClick={() => navigate('credit-timeline')}
+        onClick={() => navigate('fin-timeline')}
       >
-        View Credit Story Timeline →
+        View Fin Story Timeline →
       </button>
     </section>
   );

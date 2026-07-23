@@ -19,7 +19,7 @@ export default function AccountTypeScreen() {
           </span>
           <div className="account-name">💼 Salary Account</div>
           <div className="account-desc">
-            Zero-balance account with Credit Story tracking. Built for your first job.
+            Zero-balance account with Fin Story tracking. Built for your first job.
           </div>
         </div>
 

@@ -77,7 +77,7 @@ export default function AIChatScreen() {
     setTimeout(() => {
       addTypingThenAI(
         'Done! 🎉 Goa Trip goal created — ₹15,000 in 3 months.',
-        '+3 Credit Story',
+        '+3 Fin Story',
         1200
       );
       addScore(3);

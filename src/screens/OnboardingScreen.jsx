@@ -5,12 +5,12 @@ const slides = [
   {
     icon: '📊', bg: 'green',
     title: <>No credit history?<br/>That&apos;s the point.</>,
-    text: "You're not behind. You're at the starting line. Day One builds your credit story from your very first salary.",
+    text: "You're not behind. You're at the starting line. Day One builds your Fin Story from your very first salary.",
   },
   {
     icon: '⚡', bg: 'blue',
     title: <>Every action<br/>builds your score.</>,
-    text: 'Budget, save, invest — each step adds to your Credit Story. Watch it grow in real-time.',
+    text: 'Budget, save, invest — each step adds to your Fin Story. Watch it grow in real-time.',
   },
   {
     icon: '🔓', bg: 'gold',
@@ -31,19 +31,17 @@ export default function OnboardingScreen() {
   return (
     <section className="screen no-pad">
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', padding: 'var(--space-lg)' }}>
-        <div style={{ flex: 1, position: 'relative' }}>
-          <div className="onboarding-slides">
-            {slides.map((slide, i) => (
-              <div
-                key={i}
-                className={`onboarding-slide ${i === current ? 'active' : i < current ? 'exit' : ''}`}
-              >
-                <div className={`onboarding-icon ${slide.bg}`}>{slide.icon}</div>
-                <h2>{slide.title}</h2>
-                <p>{slide.text}</p>
-              </div>
-            ))}
-          </div>
+        <div className="onboarding-slides" style={{ flex: 1, position: 'relative', width: '100%' }}>
+          {slides.map((slide, i) => (
+            <div
+              key={i}
+              className={`onboarding-slide ${i === current ? 'active' : i < current ? 'exit' : ''}`}
+            >
+              <div className={`onboarding-icon ${slide.bg}`}>{slide.icon}</div>
+              <h2>{slide.title}</h2>
+              <p>{slide.text}</p>
+            </div>
+          ))}
         </div>
 
         <div className="dots">

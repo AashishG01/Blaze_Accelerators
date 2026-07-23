@@ -11,7 +11,7 @@ const milestones = [
     items: [
       { action: 'Build emergency fund', target: '₹1,00,000', tip: '6 months of expenses as safety net' },
       { action: 'Start first SIP', target: '₹2,000/mo', tip: 'Index fund — let compounding begin' },
-      { action: 'Build credit history', target: 'CIBIL 700+', tip: 'Your Credit Story does this automatically' },
+      { action: 'Build credit history', target: 'CIBIL 700+', tip: 'Your Fin Story does this automatically' },
     ],
   },
   {
@@ -49,7 +49,7 @@ const milestones = [
     subtitle: 'Your biggest asset',
     items: [
       { action: 'Home loan down payment', target: '₹10–20L (20% of property)', tip: 'Start saving ₹15,000/mo by age 27' },
-      { action: 'CIBIL score 750+', target: 'Unlocks best home loan rates', tip: 'Your Credit Story builds this from Day One' },
+      { action: 'CIBIL score 750+', target: 'Unlocks best home loan rates', tip: 'Your Fin Story builds this from Day One' },
       { action: 'Diversify investments', target: 'Equity + Debt + Gold', tip: 'Don\'t put all eggs in one basket' },
     ],
   },

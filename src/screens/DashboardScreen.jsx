@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import CreditGauge from '../components/CreditGauge';
+import FinGauge from '../components/FinGauge';
+import StreakWidget from '../components/StreakWidget';
 
 export default function DashboardScreen() {
-  const { navigate, creditScore, salary, budgetPcts } = useApp();
+  const { navigate, finScore, salary, budgetPcts, streakCount } = useApp();
   const [showInsight, setShowInsight] = useState(false);
 
   // Determine if this is the "updated" dashboard (after completing the flow)
-  const isUpdated = creditScore >= 20;
+  const isUpdated = finScore >= 20;
 
   const formattedBalance = isUpdated
     ? '₹' + salary.toLocaleString('en-IN')
@@ -46,23 +47,29 @@ export default function DashboardScreen() {
           <h2>Hey Rahul 👋</h2>
           <div className="dash-date">{isUpdated ? 'Day One — Month 1' : 'Your Day One'}</div>
         </div>
-        <div className="dash-notif">🔔</div>
+        <div className="dash-header-right">
+          <div className="dash-streak-badge">
+            <span className="dash-streak-fire">🔥</span>
+            <span className="dash-streak-num">{streakCount}</span>
+          </div>
+          <div className="dash-notif">🔔</div>
+        </div>
       </div>
 
-      {/* CREDIT STORY — THE TOP CARD */}
+      {/* Fin Story — THE TOP CARD */}
       <div
-        className={`card card-credit-story cs-pulse ${showInsight ? 'insight-active' : ''}`}
+        className={`card card-fin-story cs-pulse ${showInsight ? 'insight-active' : ''}`}
         style={{ marginBottom: 'var(--space-lg)', cursor: 'pointer', position: 'relative' }}
         onClick={handleCardClick}
       >
-        <div className="credit-story-hero">
-          <CreditGauge score={creditScore} size={80} />
+        <div className="fin-story-hero">
+          <FinGauge score={finScore} size={80} />
           <div className="cs-hero-info">
-            <h3>YOUR CREDIT STORY</h3>
+            <h3>YOUR Fin Story</h3>
             <div className="cs-status">
               {isUpdated
-                ? `Score: ${creditScore} — Great start! 🌱`
-                : `Score: ${creditScore} — Your story starts today`}
+                ? `Score: ${finScore} — Great start! 🌱`
+                : `Score: ${finScore} — Your story starts today`}
             </div>
             <div className="cs-next">
               {isUpdated
@@ -149,7 +156,7 @@ export default function DashboardScreen() {
           <button
             className="btn btn-primary btn-sm"
             style={{ marginTop: 'var(--space-md)' }}
-            onClick={(e) => { e.stopPropagation(); navigate('credit-timeline'); }}
+            onClick={(e) => { e.stopPropagation(); navigate('fin-timeline'); }}
           >
             View Full Credit Timeline →
           </button>
@@ -163,6 +170,9 @@ export default function DashboardScreen() {
           onClick={() => setShowInsight(false)}
         />
       )}
+
+      {/* Streak Widget */}
+      <StreakWidget />
 
       {/* Balance Card */}
       <div className="card balance-card">

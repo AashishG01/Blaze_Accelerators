@@ -19,7 +19,7 @@ export default function UnlockScreen() {
           </div>
           <div className="unlock-title">Pre-approved Credit Card</div>
           <div className="unlock-desc">
-            No CIBIL needed. Your Credit Story IS your score. Zero annual fee, 2% cashback on everything.
+            No CIBIL needed. Your Fin Story IS your score. Zero annual fee, 2% cashback on everything.
           </div>
         </div>
 
@@ -47,7 +47,7 @@ export default function UnlockScreen() {
           <div className="unlock-month">Month 24</div>
           <div className="unlock-title">Home Loan Fast-Track</div>
           <div className="unlock-desc">
-            Priority processing, preferred rates. Your 2-year Credit Story speaks louder than any paperwork.
+            Priority processing, preferred rates. Your 2-year Fin Story speaks louder than any paperwork.
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ export default function SplashScreen() {
         }}
       >
         <div className="splash-logo">Day One</div>
-        <p className="splash-tagline">Your credit story starts here.</p>
+        <p className="splash-tagline">Your Fin Story starts here.</p>
         <p className="splash-tap">Tap anywhere to begin</p>
       </div>
     </section>

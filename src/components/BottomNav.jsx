@@ -10,12 +10,12 @@ const navItems = [
     icon: <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="10" y1="3" x2="10" y2="9"/></svg>,
   },
   {
-    key: 'ai', label: 'AI Coach',
-    icon: <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>,
+    key: 'learn', label: 'Learn',
+    icon: <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>,
   },
   {
-    key: 'goals', label: 'Goals',
-    icon: <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>,
+    key: 'ai', label: 'AI Coach',
+    icon: <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>,
   },
   {
     key: 'profile', label: 'Profile',
@@ -26,20 +26,21 @@ const navItems = [
 const screenMap = {
   home: 'dashboard',
   budget: 'budget',
+  learn: 'learn',
   ai: 'ai-chat',
-  goals: 'goals',
   profile: 'progress',
 };
 
 export default function BottomNav() {
-  const { currentScreen, navigate, creditScore } = useApp();
+  const { currentScreen, navigate, finScore } = useApp();
 
   const getActiveKey = () => {
     const reverseMap = {};
     Object.entries(screenMap).forEach(([k, v]) => { reverseMap[v] = k; });
     reverseMap['dashboard-updated'] = 'home';
-    reverseMap['credit-timeline'] = 'profile';
+    reverseMap['fin-timeline'] = 'profile';
     reverseMap['unlock'] = 'profile';
+    reverseMap['module'] = 'learn';
     return reverseMap[currentScreen] || 'home';
   };
 
@@ -47,7 +48,7 @@ export default function BottomNav() {
 
   const handleClick = (key) => {
     if (key === 'home') {
-      navigate(creditScore >= 20 ? 'dashboard-updated' : 'dashboard');
+      navigate(finScore >= 20 ? 'dashboard-updated' : 'dashboard');
     } else {
       navigate(screenMap[key]);
     }

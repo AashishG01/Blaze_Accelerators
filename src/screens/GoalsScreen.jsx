@@ -3,25 +3,25 @@ import { useApp } from '../context/AppContext';
 const goals = [
   {
     emoji: '🏖️', name: 'Goa Trip',
-    current: 0, target: 15000, months: 3, credit: '+3 Credit Story',
+    current: 0, target: 15000, months: 3, credit: '+3 Fin Story',
   },
   {
     emoji: '🚨', name: 'Emergency Fund',
-    current: 0, target: 100000, months: 9, credit: '+8 Credit Story',
+    current: 0, target: 100000, months: 9, credit: '+8 Fin Story',
   },
   {
     emoji: '💻', name: 'MacBook',
-    current: 0, target: 150000, months: 15, credit: '+5 Credit Story',
+    current: 0, target: 150000, months: 15, credit: '+5 Fin Story',
   },
 ];
 
 export default function GoalsScreen() {
-  const { navigate, creditScore } = useApp();
+  const { navigate, finScore } = useApp();
 
   return (
     <section className="screen">
       <h2 className="screen-title">Your Goals</h2>
-      <p className="screen-subtitle">Every goal adds to your Credit Story.</p>
+      <p className="screen-subtitle">Every goal adds to your Fin Story.</p>
 
       <div className="goals-list stagger">
         {goals.map((goal, i) => (
@@ -53,7 +53,7 @@ export default function GoalsScreen() {
         &ldquo;3 goals set. You&apos;re building a financial life, not just spending a salary.&rdquo;
       </p>
 
-      <button className="btn btn-primary" onClick={() => navigate(creditScore >= 20 ? 'dashboard-updated' : 'dashboard')}>
+      <button className="btn btn-primary" onClick={() => navigate(finScore >= 20 ? 'dashboard-updated' : 'dashboard')}>
         Back to Dashboard →
       </button>
     </section>

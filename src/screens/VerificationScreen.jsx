@@ -48,7 +48,7 @@ export default function VerificationScreen() {
           <h2>Welcome, Rahul.</h2>
           <p className="text-secondary">Day One starts now.</p>
           <button className="btn btn-accent" onClick={() => navigate('quiz')}>
-            Let&apos;s build your Credit Story →
+            Let&apos;s build your Fin Story →
           </button>
         </div>
       )}

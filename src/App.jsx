@@ -16,9 +16,11 @@ import AIChatScreen from './screens/AIChatScreen';
 import SIPScreen from './screens/SIPScreen';
 import GoalsScreen from './screens/GoalsScreen';
 import ProgressScreen from './screens/ProgressScreen';
-import CreditTimelineScreen from './screens/CreditTimelineScreen';
+import FinTimelineScreen from './screens/FinTimelineScreen';
 import UnlockScreen from './screens/UnlockScreen';
 import LifeTimelineScreen from './screens/LifeTimelineScreen';
+import LearnScreen from './screens/LearnScreen';
+import ModuleScreen from './screens/ModuleScreen';
 
 const screens = {
   'splash': SplashScreen,
@@ -32,11 +34,13 @@ const screens = {
   'ai-chat': AIChatScreen,
   'sip': SIPScreen,
   'goals': GoalsScreen,
-  'dashboard-updated': DashboardScreen, // Same component, renders based on creditScore
+  'dashboard-updated': DashboardScreen, // Same component, renders based on finScore
   'progress': ProgressScreen,
-  'credit-timeline': CreditTimelineScreen,
+  'fin-timeline': FinTimelineScreen,
   'unlock': UnlockScreen,
   'life-timeline': LifeTimelineScreen,
+  'learn': LearnScreen,
+  'module': ModuleScreen,
 };
 
 const noNavScreens = ['splash', 'onboarding', 'account-type', 'verification', 'quiz', 'celebration'];

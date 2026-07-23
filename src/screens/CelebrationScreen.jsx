@@ -31,7 +31,7 @@ export default function CelebrationScreen() {
 
     setTimeout(() => requestAnimationFrame(tick), 500);
 
-    // Add credit score after counter finishes
+    // Add fin score after counter finishes
     setTimeout(() => addScore(10), 1500);
   }, [salary, addScore, fireConfetti]);
 
@@ -43,11 +43,11 @@ export default function CelebrationScreen() {
         <h2>Your first salary just landed!</h2>
         <p className="celebration-sub">This is a big deal. Let&apos;s make every rupee count.</p>
 
-        <div className="card card-credit-story credit-update-card">
+        <div className="card card-fin-story credit-update-card">
           <div className="cu-row">
             <span className="cu-check">✅</span>
             <span className="cu-text">First salary received</span>
-            <span className="cu-points">+10 Credit Story</span>
+            <span className="cu-points">+10 Fin Story</span>
           </div>
         </div>
 

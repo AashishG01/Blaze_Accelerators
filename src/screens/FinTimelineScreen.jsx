@@ -1,5 +1,5 @@
 import { useApp } from '../context/AppContext';
-import CreditGauge from '../components/CreditGauge';
+import FinGauge from '../components/FinGauge';
 
 const entries = [
   { status: 'complete', title: 'Account opened', detail: 'Month 0', points: '+10 points' },
@@ -9,19 +9,19 @@ const entries = [
   { status: 'complete', title: 'Goals created', detail: 'Month 0 — Goa Trip, Emergency Fund, MacBook', points: '+3 points' },
   { status: 'upcoming', title: 'First budget month completed', detail: 'Month 1', points: '+8 points' },
   { status: 'upcoming', title: 'Consistent SIP payments', detail: 'Month 3', points: '+12 points' },
-  { status: 'locked', title: 'CIBIL score generated', detail: "Month 3 — You'll have a real credit score" },
+  { status: 'locked', title: 'CIBIL score generated', detail: "Month 3 — You'll have a real fin score" },
   { status: 'locked', title: '🔓 Pre-approved credit card', detail: 'Month 6 — No application needed' },
   { status: 'locked', title: '🔓 Pre-approved personal loan', detail: 'Month 12 — Better rates, because you have proof' },
 ];
 
-export default function CreditTimelineScreen() {
-  const { navigate, creditScore } = useApp();
+export default function FinTimelineScreen() {
+  const { navigate, finScore } = useApp();
 
   return (
     <section className="screen">
-      <div className="credit-timeline-header">
-        <CreditGauge score={creditScore} size={120} />
-        <h2 style={{ marginTop: 'var(--space-lg)' }}>Your Credit Story</h2>
+      <div className="fin-timeline-header">
+        <FinGauge score={finScore} size={120} />
+        <h2 style={{ marginTop: 'var(--space-lg)' }}>Your Fin Story</h2>
         <p className="text-secondary" style={{ marginTop: 'var(--space-sm)' }}>
           Every entry is a step toward financial freedom.
         </p>

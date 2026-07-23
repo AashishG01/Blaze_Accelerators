@@ -1,4 +1,4 @@
-export default function CreditGauge({ score, size = 80, maxScore = 100 }) {
+export default function FinGauge({ score, size = 80, maxScore = 100 }) {
   const isLarge = size >= 120;
   const radius = isLarge ? 52 : 34;
   const center = size / 2;
@@ -26,7 +26,7 @@ export default function CreditGauge({ score, size = 80, maxScore = 100 }) {
         <span className="score-number" style={!isLarge ? { fontSize: '1.5rem' } : undefined}>
           {score}
         </span>
-        {isLarge && <span className="score-label">Credit Story</span>}
+        {isLarge && <span className="score-label">Fin Story</span>}
       </div>
     </div>
   );

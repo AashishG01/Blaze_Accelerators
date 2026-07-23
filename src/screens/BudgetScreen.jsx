@@ -2,8 +2,8 @@ import { useApp } from '../context/AppContext';
 
 const categoryMeta = {
   essentials: { emoji: '🏠', label: 'Essentials', desc: 'Food, transport, phone — hostel covers the rest', credit: null },
-  savings:    { emoji: '💰', label: 'Savings', desc: null, credit: '⚡ Setting this up → +5 Credit Story' },
-  investments:{ emoji: '📈', label: 'Investments', desc: null, credit: '⚡ Starting a SIP → +5 Credit Story' },
+  savings:    { emoji: '💰', label: 'Savings', desc: null, credit: '⚡ Setting this up → +5 Fin Story' },
+  investments:{ emoji: '📈', label: 'Investments', desc: null, credit: '⚡ Starting a SIP → +5 Fin Story' },
   spending:   { emoji: '🎉', label: 'Spending Money', desc: 'You earned this. No guilt.', credit: null },
 };
 
@@ -83,7 +83,7 @@ export default function BudgetScreen() {
       </div>
 
       <div className="budget-credit-reward">
-        <div className="bcr-points">+15 Credit Story</div>
+        <div className="bcr-points">+15 Fin Story</div>
         <div className="bcr-text">for creating your personalized budget</div>
       </div>
 

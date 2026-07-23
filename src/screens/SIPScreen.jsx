@@ -24,11 +24,11 @@ export default function SIPScreen() {
           <p className="text-secondary">
             Most people your age haven&apos;t done this yet. Your money is now working 24/7 — even while you sleep.
           </p>
-          <div className="card card-credit-story" style={{ padding: 'var(--space-md) var(--space-lg)' }}>
+          <div className="card card-fin-story" style={{ padding: 'var(--space-md) var(--space-lg)' }}>
             <div className="cu-row">
               <span className="cu-check">✅</span>
               <span className="cu-text">First SIP started</span>
-              <span className="cu-points">+10 Credit Story</span>
+              <span className="cu-points">+10 Fin Story</span>
             </div>
           </div>
           <button className="btn btn-primary" onClick={() => navigate('goals')}>
@@ -71,11 +71,11 @@ export default function SIPScreen() {
         ))}
       </div>
 
-      <div className="card card-credit-story" style={{ marginBottom: 'var(--space-lg)', padding: 'var(--space-md) var(--space-lg)' }}>
+      <div className="card card-fin-story" style={{ marginBottom: 'var(--space-lg)', padding: 'var(--space-md) var(--space-lg)' }}>
         <div className="cu-row">
           <span className="cu-check">⚡</span>
           <span className="cu-text">Starting SIP</span>
-          <span className="cu-points">+10 Credit Story</span>
+          <span className="cu-points">+10 Fin Story</span>
         </div>
       </div>
 

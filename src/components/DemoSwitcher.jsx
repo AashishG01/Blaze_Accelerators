@@ -15,14 +15,16 @@ const demoSteps = [
   { id: 'goals', label: '11. Goals Board' },
   { id: 'dashboard-updated', label: '12. Active Dashboard (Score 38)' },
   { id: 'progress', label: '13. Financial Health' },
-  { id: 'credit-timeline', label: '14. Credit Story Timeline' },
+  { id: 'fin-timeline', label: '14. Fin Story Timeline' },
   { id: 'unlock', label: '15. Bank Unlocks Ladder' },
   { id: 'life-timeline', label: '16. Life Roadmap 🗺️' },
+  { id: 'learn', label: '17. Finance Academy 📚' },
+  { id: 'module', label: '18. Module Player 📖' },
 ];
 
 export default function DemoSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
-  const { currentScreen, navigate, creditScore, dispatch } = useApp();
+  const { currentScreen, navigate, finScore, dispatch } = useApp();
 
   const handleReset = () => {
     dispatch({ type: 'NAVIGATE', screen: 'splash' });
@@ -56,7 +58,7 @@ export default function DemoSwitcher() {
         }}
       >
         <span>🎮 Demo Switcher</span>
-        <span style={{ fontSize: '0.65rem', opacity: 0.7 }}>({creditScore} pts)</span>
+        <span style={{ fontSize: '0.65rem', opacity: 0.7 }}>({finScore} pts)</span>
       </button>
 
       {isOpen && (
